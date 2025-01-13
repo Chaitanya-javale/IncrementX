@@ -36,35 +36,45 @@ public class MainController {
 		Mapping mapping = new Mapping();
 		PullTag tag = new PullTag();
 
-		System.out.println("login started");
+		System.out.println("login started"
+				+ "\n=========================================");
 		newlogin.login(Driver);
 
-		System.out.println("login success");
+		System.out.println("login success"
+				+ "\n=========================================");
 		Thread.sleep(5000);
 
-		System.out.println("create new inventory ");
+		System.out.println("create new inventory"
+				+ "\n=========================================");
 
 		Inventory.inventory(Driver, invetorysiteName);
 
-		System.out.println("Inventory creationn success" + invetorysiteName.getInventoryName());
+		System.out.println("Inventory creationn success"
+				+ "\n=========================================");
 		Thread.sleep(5000);
 
-		System.out.println("create adnuit start --- " + invetorysiteName.getInventoryName());
+		System.out.println("create adnuit start --- "
+				+ "\n=========================================");
 
 		if (invetorysiteName.getInventoryName() == null || invetorysiteName.getInventoryName().isEmpty()) {
+			System.out.println(invetorysiteName);
 			invetorysiteName.setInventoryName("mintsites.com");
-			Driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/ul/li[2]/a/span")).click();
+			Driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/ul/li[2]/a/b")).click();
 		}
 
-		adunit.CreateAdunit(Driver, wait, invetorysiteName);
-		System.out.println("adunit created successuffly");
+		adunit.CreateAdunit(Driver, wait, invetorysiteName, Inventory);
+		System.out.println("adunit created successuffly"
+				+ "\n=========================================");
 
-		System.out.println("going to mapping page");
-		mapping.OptMapping(Driver, wait, invetorysiteName);
-		System.out.println("mapping complete");
+		System.out.println("going to mapping page"
+				+ "\n=========================================");
+		mapping.OptMapping(Driver, wait, invetorysiteName, Inventory);
+		System.out.println("mapping complete"
+				+ "\n=========================================");
 
-		System.out.println("pull tag process starts");
-		tag.GetTag(Driver, wait, invetorysiteName);
+		System.out.println("pull tag process starts"
+				+ "\n=========================================");
+		tag.GetTag(Driver, wait, invetorysiteName, Inventory);
 		System.out.println("Ad rendered");
 	}
 

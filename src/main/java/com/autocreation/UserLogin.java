@@ -3,16 +3,13 @@ package com.autocreation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-
-
 public class UserLogin {
 
 	String userName = "pubnx@vertoz.com";
 	String password = "ixbidder@123";
 
 	public void login(WebDriver Driver) throws InterruptedException {
-		
-		
+
 		Driver.findElement(By.id("Emailid")).sendKeys(userName);
 		Thread.sleep(1000);
 		Driver.findElement(By.name("password")).sendKeys(password);

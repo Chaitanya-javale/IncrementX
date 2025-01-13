@@ -27,6 +27,19 @@ public class locator {
         usedNames.add(websiteName);
         return websiteName;
     }
+	
+	public static String generateRandomString(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            result.append(characters.charAt(index));
+        }
+
+        return result.toString();
+    }
  
 }
 
